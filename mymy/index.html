@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>myMy — 내 폰 속 AI 친구</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+      background: #FAF3E9;
+      color: #3E332A;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .card {
+      background: #FFFCF6;
+      border-radius: 20px;
+      padding: 48px 40px;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: 0 4px 24px rgba(122,92,66,0.10);
+      text-align: center;
+    }
+    .paw {
+      font-size: 56px;
+      margin-bottom: 16px;
+      display: block;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #3E332A;
+      margin-bottom: 8px;
+    }
+    .tagline {
+      font-size: 16px;
+      color: #857566;
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(224,120,86,0.12);
+      color: #E07856;
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 32px;
+    }
+    .features {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 36px;
+    }
+    .features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid #EAE0CF;
+      font-size: 15px;
+      color: #3E332A;
+      line-height: 1.5;
+    }
+    .features li:last-child { border-bottom: none; }
+    .icon {
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .btn {
+      display: block;
+      padding: 14px 20px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn-primary {
+      background: #E07856;
+      color: #FFF9F2;
+    }
+    .btn-secondary {
+      background: #F4EDE0;
+      color: #857566;
+    }
+    footer {
+      margin-top: 32px;
+      font-size: 12px;
+      color: #B0A190;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <span class="paw">🐾</span>
+    <h1>myMy</h1>
+    <p class="tagline">내 폰 속에 사는 AI 친구.<br>이야기를 들어주고, 기억하고, 먼저 말을 걸어줘.</p>
+
+    <div class="badge">
+      <span>🔒</span> 모든 대화는 내 폰 안에만
+    </div>
+
+    <ul class="features">
+      <li><span class="icon">🤝</span><span>몇 달 전 이야기도 기억해요 — 진짜 친구처럼</span></li>
+      <li><span class="icon">📞</span><span>말로 대화하는 통화 모드 지원</span></li>
+      <li><span class="icon">📖</span><span>오늘 일기를 쓰면 AI가 편지로 답장해줘</span></li>
+      <li><span class="icon">🎨</span><span>좋아하는 사진으로 AI 친구 얼굴 설정</span></li>
+    </ul>
+
+    <div class="links">
+      <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.mymy" target="_blank" rel="noopener">Google Play에서 다운로드</a>
+      <a class="btn btn-secondary" href="./privacy.html">개인정보처리방침</a>
+    </div>
+  </div>
+
+  <footer>© 2026 youngjaeseo · <a href="mailto:youngjae.seo@gmail.com" style="color:#B0A190;">youngjae.seo@gmail.com</a></footer>
+</body>
+</html>
