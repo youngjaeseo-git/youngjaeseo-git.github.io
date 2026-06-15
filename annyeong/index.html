@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>안녕, 오늘 — 매일 아침 날씨, 저녁엔 한 줄 기분</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+      background: #FAF3E9;
+      color: #3E332A;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .card {
+      background: #FFFCF6;
+      border-radius: 20px;
+      padding: 48px 40px;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: 0 4px 24px rgba(122,92,66,0.10);
+      text-align: center;
+    }
+    .icon {
+      font-size: 56px;
+      margin-bottom: 16px;
+      display: block;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #3E332A;
+      margin-bottom: 8px;
+    }
+    .tagline {
+      font-size: 16px;
+      color: #857566;
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(224,120,86,0.12);
+      color: #E07856;
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 32px;
+    }
+    .features {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 36px;
+    }
+    .features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid #EAE0CF;
+      font-size: 15px;
+      color: #3E332A;
+      line-height: 1.5;
+    }
+    .features li:last-child { border-bottom: none; }
+    .feat-icon {
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .btn {
+      display: block;
+      padding: 14px 20px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn-primary {
+      background: #E07856;
+      color: #FFF9F2;
+    }
+    .btn-secondary {
+      background: #F4EDE0;
+      color: #857566;
+    }
+    .soon {
+      background: #F4EDE0;
+      color: #B0A190;
+      cursor: not-allowed;
+    }
+    .soon:hover { opacity: 1; }
+    footer {
+      margin-top: 32px;
+      font-size: 12px;
+      color: #B0A190;
+    }
+    footer a { color: #B0A190; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <span class="icon">🌅</span>
+    <h1>안녕, 오늘</h1>
+    <p class="tagline">아침엔 날씨로 안부를,<br>저녁엔 기분을 한 줄로.</p>
+
+    <div class="badge">
+      <span>🔒</span> 일기는 내 폰 안에만
+    </div>
+
+    <ul class="features">
+      <li><span class="feat-icon">🌤</span><span>매일 아침 정해진 시간, 현재 위치 날씨 + 옷차림·우산 안내</span></li>
+      <li><span class="feat-icon">🌙</span><span>저녁엔 한 줄 기분 기록, 캐릭터가 응원·위로를 건네줘요</span></li>
+      <li><span class="feat-icon">🎒</span><span>여행지·기간을 입력하면 일자별 날씨 코칭</span></li>
+      <li><span class="feat-icon">🔐</span><span>일기 암호화 백업·복원 — 기기 밖 전송 없음</span></li>
+    </ul>
+
+    <div class="links">
+      <a class="btn soon">Google Play 곧 출시</a>
+      <a class="btn btn-secondary" href="./privacy.html">개인정보처리방침</a>
+    </div>
+  </div>
+
+  <footer>© 2026 youngjaeseo · <a href="mailto:youngjae.seo@gmail.com">youngjae.seo@gmail.com</a></footer>
+</body>
+</html>
