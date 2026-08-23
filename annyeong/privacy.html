@@ -24,16 +24,6 @@
       z-index: 10;
       box-shadow: 0 2px 8px rgba(122,92,66,0.06);
     }
-    header a {
-      font-size: 14px;
-      color: #E07856;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    header span {
-      font-size: 14px;
-      color: #B0A190;
-    }
     header strong {
       font-size: 15px;
       color: #3E332A;
@@ -148,18 +138,18 @@
 
   <div class="meta">
     <p><strong>앱:</strong> 안녕, 오늘 (Annyeong, Today)</p>
-    <p><strong>시행일:</strong> 2026년 6월 15일</p>
+    <p><strong>시행일:</strong> 2026년 8월 23일</p>
     <p><strong>개발자:</strong> 서영재 (youngjaeseo)</p>
     <p><strong>문의:</strong> <a href="mailto:youngjae.seo@gmail.com">youngjae.seo@gmail.com</a></p>
   </div>
 
   <div class="notice">
-    🔒 일기·기분 기록 등 모든 개인 콘텐츠는 이 기기 안에서만 처리되며, 개발자 서버로 전송되지 않습니다.
+    🔒 광고도, 광고 식별자 추적도 없는 작은 날씨 앱이에요. 닉네임·장소 등 사용자 입력 정보는 이 기기에만 저장돼요. 오류가 나면 익명 진단만 보낼 수 있어요.
   </div>
 
   <div class="section">
     <h2>1. 개요</h2>
-    <p>"안녕, 오늘"은 매일 아침 현재 위치의 날씨를 귀여운 일러스트와 함께 브리핑하고, 저녁엔 한 줄 기분을 기록받아 캐릭터가 응원/위로를 건네는 앱입니다. 캐릭터의 응원·위로 메시지는 모두 앱 내부 로컬 룰로 생성되며, 사용자가 적은 메모를 외부 AI 서비스로 보내지 않습니다.</p>
+    <p>"안녕, 오늘"은 매일 아침 현재 위치의 날씨를 귀여운 캐릭터 일러스트와 함께 한 화면에 보여드리는 작은 앱입니다. 닉네임, 저장한 장소, 캐릭터·배경 설정 같은 사용자 입력 정보는 이 기기에만 저장되며 어떤 외부 서버로도 전송되지 않습니다.</p>
   </div>
 
   <div class="section">
@@ -173,41 +163,40 @@
       <tbody>
         <tr><td>닉네임</td><td>설정에서 직접 입력</td><td>기기 내</td></tr>
         <tr><td>생년월일</td><td>운세 기능을 켤 때만 직접 입력</td><td>기기 내</td></tr>
-        <tr><td>알림 시간</td><td>아침 브리핑·저녁 기분 알림 시간 설정</td><td>기기 내</td></tr>
+        <tr><td>알림 시간</td><td>아침 브리핑 시간 설정</td><td>기기 내</td></tr>
         <tr><td>저장한 장소</td><td>"내 장소"에 집·회사 등 직접 등록</td><td>기기 내</td></tr>
         <tr><td>여행 일정</td><td>여행 모드에서 직접 입력</td><td>기기 내</td></tr>
         <tr><td>사용자 추가 명언</td><td>설정에서 직접 입력</td><td>기기 내</td></tr>
         <tr><td>배경 사진</td><td>갤러리에서 직접 선택 (선택 사항, 앱 폴더에 복사 저장)</td><td>기기 내</td></tr>
         <tr><td>캐릭터·음성 설정</td><td>설정에서 직접 선택</td><td>기기 내</td></tr>
-        <tr><td><strong>저녁 기분 일기</strong> (기분·태그·메모·캐릭터 응답·그날 날씨 스냅샷)</td><td>일기 탭에서 직접 입력</td><td>기기 내</td></tr>
       </tbody>
     </table>
-    <p>저장 방식: Android의 <code>SharedPreferences</code> (앱 데이터 영역). 앱을 삭제하면 모든 데이터가 함께 삭제됩니다.</p>
+    <p>저장 방식: 이 기기의 앱 저장소(Android <code>SharedPreferences</code>, iOS UserDefaults·앱 문서 폴더). 앱을 삭제하면 함께 삭제됩니다.</p>
 
     <h3>2-2. 위치 정보 (앱 사용 중에만)</h3>
     <ul>
       <li>현재 위치의 날씨를 보여주기 위해 <strong>앱 사용 중에만</strong> 위치 정보를 요청합니다.</li>
       <li>위치 좌표는 <strong>장기 저장하지 않으며</strong>, 매번 사용 시 새로 조회합니다. (마지막 조회 위치는 최대 15분간 메모리에만 캐시하여 화면 전환 시 네트워크 부하를 줄입니다.)</li>
-      <li>위치 좌표는 Open-Meteo 날씨 API에 전송되어 날씨 정보를 받아오는 데만 사용됩니다.</li>
+      <li>위치 좌표는 Open-Meteo 날씨·대기질 API에 전송되어 날씨를 받아오는 데만 사용됩니다. 한국이고 기상청 키가 있는 빌드에서는 공공데이터포털(기상청)에도 격자 좌표를 보냅니다.</li>
+      <li>장소 이름으로 찾을 때는 Open-Meteo 지오코딩에 입력한 지명이 전송됩니다. 좌표→지역명 변환은 기기 지오코더(Google/Apple)를 씁니다.</li>
     </ul>
 
     <h3>2-3. 자동으로 수집되는 익명 오류 정보</h3>
     <p>앱이 예기치 않게 종료되거나 오류가 발생할 경우, 문제 해결을 위해 아래 <strong>익명 오류 정보</strong>가 Firebase Crashlytics (Google LLC)로 전송됩니다.</p>
     <ul>
-      <li>기기 모델명 및 Android 버전</li>
+      <li>기기 모델명 및 OS 버전</li>
       <li>오류가 발생한 코드 위치 (스택 트레이스)</li>
       <li>앱 버전</li>
-      <li>익명의 설치 식별자 (Firebase Installation ID) — 광고 식별자(AAID)나 연락처 정보가 아닙니다</li>
-      <li>앱 실행 횟수·화면 진입 횟수 등 익명 집계 통계</li>
+      <li>익명의 설치 식별자 (Firebase Installation ID) — 광고 식별자가 아닙니다</li>
     </ul>
-    <p>이 정보는 특정 개인을 식별하는 데 사용될 수 없으며, <strong>일기 본문·메모·닉네임·생년월일·위치 좌표·저장한 장소 이름·여행 일정·사용자 추가 명언은 포함되지 않습니다.</strong></p>
+    <p>이 정보는 특정 개인을 식별하는 데 사용될 수 없으며, <strong>닉네임·생년월일·위치 좌표·저장한 장소 이름·여행 일정·사용자 추가 명언은 포함되지 않습니다.</strong></p>
   </div>
 
   <div class="section">
     <h2>3. 정보 처리 방식</h2>
     <ul>
-      <li>일기·기분 메모는 <strong>기기 내에서만 처리되며</strong>, 외부 AI/네트워크로 전송되지 않습니다. 캐릭터의 응원/위로 메시지는 모두 앱 내부 로컬 룰로 생성됩니다.</li>
-      <li>개인 데이터(일기·메모·닉네임 등)는 어떠한 외부 서버로도 전송되지 않습니다.</li>
+      <li>닉네임·저장한 장소·캐릭터 설정 등 모든 사용자 입력 정보는 <strong>이 기기 안에서만</strong> 처리됩니다.</li>
+      <li>위치 좌표는 Open-Meteo 날씨 API 호출에만 사용되며, 자체 서버에 저장되지 않습니다.</li>
       <li>광고 식별자, 행동 추적 데이터는 수집하지 않습니다.</li>
     </ul>
   </div>
@@ -220,13 +209,10 @@
       </thead>
       <tbody>
         <tr><td>위치 (<code>ACCESS_COARSE_LOCATION</code> / <code>ACCESS_FINE_LOCATION</code>)</td><td>현재 위치의 날씨 조회 (앱 사용 중에만)</td></tr>
-        <tr><td>알림 (<code>POST_NOTIFICATIONS</code>)</td><td>아침 브리핑·저녁 기분 일기·여행 출발 전날 안내 (로컬 알림, 서버 없음)</td></tr>
-        <tr><td>정확한 알람 (<code>SCHEDULE_EXACT_ALARM</code>)</td><td>Android 12+에서 정해진 시간에 알람 발화 (기상 알람 스타일 선택 시)</td></tr>
-        <tr><td>풀스크린 알림 (<code>USE_FULL_SCREEN_INTENT</code>)</td><td>잠금 화면을 덮는 알람 표시 (기상 알람 스타일 선택 시)</td></tr>
-        <tr><td>부팅 완료 (<code>RECEIVE_BOOT_COMPLETED</code>)</td><td>재부팅 후 예약된 알림 자동 복구</td></tr>
-        <tr><td>갤러리 사진 (<code>READ_MEDIA_IMAGES</code>)</td><td>배경 사진 선택 (선택 사항)</td></tr>
-        <tr><td>인터넷</td><td>Open-Meteo 날씨 조회, 익명 오류 보고</td></tr>
-        <tr><td>네트워크 상태</td><td>오프라인 시 안내 처리</td></tr>
+        <tr><td>알림 (<code>POST_NOTIFICATIONS</code>)</td><td>아침 브리핑·여행 출발 전날 안내 (로컬 알림, 서버 없음)</td></tr>
+        <tr><td>부팅 완료 (<code>RECEIVE_BOOT_COMPLETED</code>)</td><td>Android에서 재부팅 후 예약된 알림 복구</td></tr>
+        <tr><td>사진 보관함 (iOS)</td><td>홈 배경 사진 선택 (기기 안에만 복사, 서버 전송 없음)</td></tr>
+        <tr><td>인터넷</td><td>날씨 조회, 선택적 후원 결제, 익명 오류 보고, 버전 확인</td></tr>
       </tbody>
     </table>
   </div>
@@ -236,14 +222,12 @@
 
     <h3>보관 및 삭제</h3>
     <ul>
-      <li>앱을 삭제하면 기기 내 모든 데이터(일기·설정 등)가 영구 삭제됩니다.</li>
-      <li>일기는 마음 달력에서 개별 삭제할 수 있습니다.</li>
+      <li>앱을 삭제하면 기기 내 모든 데이터가 영구 삭제됩니다.</li>
       <li>저장한 장소, 사용자 추가 명언 등은 설정에서 개별 삭제할 수 있습니다.</li>
-      <li>일기 백업/복원 기능은 AES-GCM-256 + PBKDF2 (10만 회) 암호화 파일로 사용자가 직접 생성·이동하며, 개발자 서버를 거치지 않습니다.</li>
     </ul>
 
     <h3>Android 자동 백업</h3>
-    <p>앱은 Android의 자동 백업 기능(Android Auto Backup)을 사용합니다. Wi-Fi 연결 및 충전 중일 때, <strong>사용자 본인의 Google 계정 드라이브</strong>에 일기·설정 데이터가 자동으로 백업됩니다.</p>
+    <p>앱은 Android의 자동 백업 기능(Android Auto Backup)을 사용합니다. Wi-Fi 연결 및 충전 중일 때, <strong>사용자 본인의 Google 계정 드라이브</strong>에 설정 데이터가 자동으로 백업됩니다.</p>
     <ul>
       <li>이 백업은 개발자가 아닌 <strong>사용자 본인의 Google 계정</strong>에 저장되며, 개발자는 이 데이터에 접근할 수 없습니다.</li>
       <li>Google 백업 정책: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a></li>
@@ -258,9 +242,13 @@
       </thead>
       <tbody>
         <tr><td>Open-Meteo Forecast API</td><td>Open-Meteo</td><td>날씨 조회</td><td>위치 좌표</td></tr>
-        <tr><td>Open-Meteo Air Quality API</td><td>Open-Meteo</td><td>미세먼지·꽃가루 조회</td><td>위치 좌표</td></tr>
-        <tr><td>Firebase Crashlytics / Analytics for Firebase</td><td>Google LLC</td><td>익명 오류·집계 분석</td><td>기기 정보, 오류 위치, 익명 식별자</td></tr>
-        <tr><td>Android Auto Backup</td><td>Google LLC</td><td>사용자 데이터 백업</td><td>사용자 Google 계정에 직접 저장</td></tr>
+        <tr><td>Open-Meteo Air Quality API</td><td>Open-Meteo</td><td>미세먼지 조회</td><td>위치 좌표</td></tr>
+        <tr><td>Open-Meteo Geocoding API</td><td>Open-Meteo</td><td>장소 이름 → 좌표</td><td>입력한 지명</td></tr>
+        <tr><td>기상청 동네예보 (키가 있는 빌드)</td><td>공공데이터포털</td><td>한국 초단기 실황·예보</td><td>격자 좌표</td></tr>
+        <tr><td>Firebase Crashlytics</td><td>Google LLC</td><td>익명 오류 보고 (구성이 된 빌드만)</td><td>기기 정보, 오류 위치, 익명 식별자</td></tr>
+        <tr><td>GitHub (version.json)</td><td>GitHub</td><td>업데이트 안내</td><td>없음 (앱이 파일만 읽음)</td></tr>
+        <tr><td>Apple/Google 인앱 결제</td><td>Apple / Google</td><td>선택 후원</td><td>스토어 결제 토큰 (후원할 때만)</td></tr>
+        <tr><td>Android Auto Backup</td><td>Google LLC</td><td>사용자 설정 백업</td><td>사용자 Google 계정에 직접 저장</td></tr>
       </tbody>
     </table>
     <p>관련 정책:</p>
@@ -273,15 +261,15 @@
 
   <div class="section">
     <h2>7. 아동 개인정보</h2>
-    <p>만 14세 미만 어린이를 대상으로 하지 않으며, 어린이의 개인정보를 의도적으로 수집하지 않습니다.</p>
+    <p>본 앱은 모든 연령 사용자를 대상으로 한 일반 날씨 앱이며, 어린이로부터 의도적으로 개인정보를 수집하지 않습니다.</p>
   </div>
 
   <div class="section">
     <h2>8. 사용자의 권리 · 옵트아웃</h2>
     <ul>
       <li><strong>데이터 삭제</strong>: 앱을 기기에서 삭제하면 모든 로컬 데이터가 함께 삭제됩니다.</li>
-      <li><strong>진단 데이터 옵트아웃</strong>: 안드로이드 기기 설정 → Google → 광고에서 "광고 ID 재설정" 또는 "광고 개인 맞춤설정 사용 중지"를 활용하거나, 앱을 삭제하면 됩니다.</li>
-      <li><strong>위치 권한 철회</strong>: 안드로이드 기기 설정 → 앱 → 안녕, 오늘 → 권한에서 위치 권한을 끄면 즉시 적용됩니다 (이 경우 현재 위치 날씨 기능이 제한됩니다).</li>
+      <li><strong>진단 데이터</strong>: 광고 ID를 쓰지 않습니다. 오류 보고를 멈추려면 앱을 삭제하면 됩니다.</li>
+      <li><strong>위치 권한 철회</strong>: 기기 설정 → 앱 → 안녕, 오늘 → 권한에서 위치를 끄면 됩니다. 끄면 현재 위치 날씨를 보여드리지 못해요.</li>
     </ul>
   </div>
 
@@ -298,7 +286,7 @@
   </div>
 
   <p style="margin-top: 32px; font-size: 13px; color: #B0A190; text-align: center;">
-    본 개인정보처리방침은 대한민국 「개인정보 보호법」 및 Google Play 개발자 정책을 준수하여 작성되었습니다.
+    본 개인정보처리방침은 대한민국 「개인정보 보호법」 및 Google Play · App Store 개발자 정책을 준수하여 작성되었습니다.
   </p>
 </main>
 
