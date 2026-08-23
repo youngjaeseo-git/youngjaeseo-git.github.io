@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>안녕, 오늘 — 매일 아침 날씨, 저녁엔 한 줄 기분</title>
+  <title>안녕, 오늘 — 매일 아침, 캐릭터와 함께하는 날씨 인사</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -83,10 +83,10 @@
     }
     .btn {
       display: block;
-      padding: 14px 20px;
-      border-radius: 12px;
-      font-size: 15px;
-      font-weight: 600;
+      padding: 16px 20px;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 700;
       text-decoration: none;
       transition: opacity 0.15s;
     }
@@ -117,20 +117,26 @@
   <div class="card">
     <span class="icon">🌅</span>
     <h1>안녕, 오늘</h1>
-    <p class="tagline">아침엔 날씨로 안부를,<br>저녁엔 기분을 한 줄로.</p>
+    <p class="tagline">매일 아침, 귀여운 캐릭터와 함께하는<br>따뜻한 날씨 브리핑.</p>
 
     <div class="badge">
-      <span>🔒</span> 일기는 내 폰 안에만
+      <span>🔒</span> 광고 없음 · 광고 추적 없음
     </div>
 
     <ul class="features">
-      <li><span class="feat-icon">🌤</span><span>매일 아침 정해진 시간, 현재 위치 날씨 + 옷차림·우산 안내</span></li>
-      <li><span class="feat-icon">🌙</span><span>저녁엔 한 줄 기분 기록, 캐릭터가 응원·위로를 건네줘요</span></li>
+      <li><span class="feat-icon">🌤</span><span>현재 위치 실시간 날씨 + 옷차림·우산 + 시간별 차트, 한 화면에</span></li>
+      <li><span class="feat-icon">🐾</span><span>4가지 캐릭터 (조약돌·냥이·곰돌이·토끼) — 날씨에 따라 표정이 바뀌어요</span></li>
+      <li><span class="feat-icon">📷</span><span>내 사진을 배경으로, 카톡·인스타에 공유하는 폴라로이드 카드</span></li>
       <li><span class="feat-icon">🎒</span><span>여행지·기간을 입력하면 일자별 날씨 코칭</span></li>
-      <li><span class="feat-icon">🔐</span><span>일기 암호화 백업·복원 — 기기 밖 전송 없음</span></li>
     </ul>
 
     <div class="links">
+      <!--
+        출시 전: "곧 출시"(비활성). 버튼이 회색인 이유 = 아직 Play 스토어에
+        등록 전이라 누를 링크가 없어서입니다. myMy 는 이미 출시돼 있어 활성.
+        Play 출시 직후 아래 한 줄을 이걸로 교체하면 활성 다운로드 버튼이 됩니다:
+        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.youngjaeseo.annyeong">Google Play에서 다운로드</a>
+      -->
       <a class="btn soon">Google Play 곧 출시</a>
       <a class="btn btn-secondary" href="./privacy.html">개인정보처리방침</a>
     </div>
